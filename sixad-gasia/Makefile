@@ -1,5 +1,5 @@
 # You know, there are pre-compile DEBs of this...
-NDK_KIT = ../../android-ndk-r9d/
+NDK_KIT = ~/android_ndk/android-ndk-r20/
 BIN = $(NDK_KIT)toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86/bin/
 PLATF_KIT = platforms/android-15/
 ARM_INC = $(NDK_KIT)$(PLATF_KIT)arch-arm/usr/include
