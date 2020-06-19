@@ -24,7 +24,7 @@ Compilation
 2. Extract the NDK and extract sixaxis-android in the same folder.
 3. Change dir to sixaxis-android/sixad-gasia.
 ```sh
-cd sixaxis-android/sixad-gasia
+cd sixaxis-android/sixad
 ```
 4. Open Makefile and adjust NDK_KIT if needed to point to NDK location relative to Makefile.
 ```Makefile
