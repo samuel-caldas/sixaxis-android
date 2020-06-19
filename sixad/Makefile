@@ -1,25 +1,33 @@
-# You know, there are pre-compile DEBs of this...
-NDK_KIT = ~/android_ndk/android-ndk-r20/
-BIN = $(NDK_KIT)toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86/bin/
-PLATF_KIT = platforms/android-15/
-ARM_INC = $(NDK_KIT)$(PLATF_KIT)arch-arm/usr/include
-INC_EXTRA = ../android-include-extras
-ARM_LIB = $(NDK_KIT)$(PLATF_KIT)arch-arm/usr/lib
-LIB_EXTRA = ../android-lib-extras
-PREFIX = arm-linux-androideabi-
+NDK= ~/Android/Sdk/ndk/21.3.6528147
+TOOLCHAIN=$(NDK)/toolchains/llvm/prebuilt/linux-x86_64
+# Only choose one of these, depending on your device...
+#TARGET=aarch64-linux-android
+TARGET=armv7a-linux-androideabi
+# Set this to your minSdkVersion.
+API=27
+# Configure
+AR=$(TOOLCHAIN)/bin/$(TARGET)-ar
+AS=$(TOOLCHAIN)/bin/$(TARGET)-as
+CC=$(TOOLCHAIN)/bin/$(TARGET)$(API)-clang
+CXX=$(TOOLCHAIN)/bin/$(TARGET)$(API)-clang++
+LD=$(TOOLCHAIN)/bin/$(TARGET)-ld
+RANLIB=$(TOOLCHAIN)/bin/$(TARGET)-ranlib
+STRIP=$(TOOLCHAIN)/bin/$(TARGET)-strip
 
-AR = $(BIN)$(PREFIX)ar
-AS = $(BIN)$(PREFIX)as
-CC = $(BIN)$(PREFIX)gcc
-CXX = $(BIN)$(PREFIX)c++
-LD = $(BIN)$(PREFIX)ld
+
+# You know, there are pre-compile DEBs of this...
+PLATF_KIT = /platforms/android-$(API)
+ARM_INC = $(TOOLCHAIN)/include
+INC_EXTRA = ../android-include-extras
+ARM_LIB = $(TOOLCHAIN)/lib
+LIB_EXTRA = ../android-lib-extras
 
 CXX ?= g++
-INCS = -I$(ARM_INC) -I$(INC_EXTRA)
+INCS = -I $(ARM_INC) -I $(INC_EXTRA) -I /usr/include
 CXXFLAGS ?= -O2 -Wall $(INCS)
 LDFLAGS += -Wl,-Bsymbolic-functions -Wl,--dynamic-linker,/system/bin/linker \
 		-Wl,-rpath,/system/lib -Wl,-rpath,$(ARM_LIB) -Wl,-rpath-link,$(ARM_LIB) \
-        --sysroot=$(NDK_KIT)$(PLATF_KIT)arch-arm/ \
+        --sysroot=$(TOOLCHAIN)/ \
 		-Wl,-L$(ARM_LIB) -L$(LIB_EXTRA)
 
 GASIA_GAMEPAD_HACKS = true
