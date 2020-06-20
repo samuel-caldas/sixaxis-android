@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <stdint.h>
+
 #ifndef LIBC_PRIVATE_KERNEL_SIGSET_T_H_
 #define LIBC_PRIVATE_KERNEL_SIGSET_T_H_
 
