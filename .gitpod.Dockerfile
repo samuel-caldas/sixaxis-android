@@ -45,6 +45,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*;
 
 # Tmate section
+RUN mkdir -p /home/gitpod/bin
 RUN wget -P /home/gitpod/ https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
 RUN tar -C /home/gitpod/ -xf tmate-2.4.0-static-linux-amd64.tar.xz
 RUN mv /home/gitpod/tmate-2.4.0-static-linux-amd64/tmate /home/gitpod/bin/tmate
