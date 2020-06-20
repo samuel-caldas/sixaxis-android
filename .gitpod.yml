@@ -4,3 +4,4 @@ image:
 tasks:
   - init: make
     command: 'echo "TODO: Replace with command to start project"'
+    command: /opt/android-studio/bin/studio.sh

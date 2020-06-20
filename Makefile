@@ -18,9 +18,9 @@ STRIP=$(TOOLCHAIN)/bin/$(TARGET)-strip
 # You know, there are pre-compile DEBs of this...
 PLATF_KIT = /platforms/android-$(API)
 ARM_INC = $(TOOLCHAIN)/include
-INC_EXTRA = ../android-include-extras
+INC_EXTRA = ./android-include-extras
 ARM_LIB = $(TOOLCHAIN)/lib
-LIB_EXTRA = ../android-lib-extras
+LIB_EXTRA = ./android-lib-extras
 
 CXX ?= g++
 INCS = -I $(ARM_INC) -I $(INC_EXTRA) -I /usr/include
