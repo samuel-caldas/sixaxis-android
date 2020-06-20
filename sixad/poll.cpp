@@ -28,6 +28,7 @@
 
 #include <sys/poll.h>
 #include <sys/select.h>
+#include <stddef.h>
 
 //#include "private/bionic_time_conversions.h"
 #include "private/kernel_sigset_t.h"
