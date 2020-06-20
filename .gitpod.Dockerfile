@@ -1,4 +1,4 @@
-FROM bitriseio/android-ndk
+FROM gitpod/workspace-full-vnc:latest
 
 USER root
 
